@@ -16,7 +16,7 @@ being modified to 0, 1, 2, 3, and 4 respectively.
 It doesn't matter what values are set beyond the returned length.
 */
 
-let inputArray = [1,1,2];
+let inputArray = [0,0,1,1,1,2,2,3,3,4];
 
 //input: array
 //output: int (representing length), also modified array, but not returned
@@ -24,19 +24,23 @@ var removeDuplicates = function(nums){
     //create object to store values seen
     let seenValues = {}
 
-    for(let i = 0; i < nums.length; i++){
-        //check if value has been seen
-        if(seenValues[nums[i]] == null){
-            //add value to seen
-            seenValues[nums[i]] = 'seen';
-            console.log('value has not been seen yet ' + nums[i])
+        //i will be used to loop through entire array
+        //j will be used to update index values
+        let i = 0;
+        let j = 0;
+
+        while(i < nums.length){
+            //check if value has been seen
+            if(seenValues[nums[i]] == null){
+                //add value to seen
+                seenValues[nums[i]] = 'seen';
+                nums[j] = nums[i];
+                j++;
+            }
+            i++
         }
-        //value has already been seen
-        else{
-            console.log('value has been seen ' + nums[i])
-        }
-    }
-    return seenValues;
+
+        return j;
 }
 
 
