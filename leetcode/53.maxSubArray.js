@@ -1,7 +1,7 @@
 /*
 Maximum Subarray - leetcode easy
-Given an integer array nums, find the contiguous subarray (containing at least one number)
-which has the largest sum and return its sum.
+Given an integer array nums, find the contiguous subarray 
+(containing at least one number) which has the largest sum and return its sum.
 
 example:
 Input: [-2,1,-3,4,-1,2,1,-5,4],

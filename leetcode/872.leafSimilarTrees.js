@@ -7,7 +7,7 @@ Return true if and only if the given trees are leaf-similar.
 Note: Both of the given trees will have between 1 and 100 nodes.
 */
 
-var Tree = require('./DataTypes/BinarySearchTree');
+var Tree = require('./../DataTypes/BinarySearchTree');
  
 //input: TreeNode (t1), TreeNode (t2)
 //output: boolean 
