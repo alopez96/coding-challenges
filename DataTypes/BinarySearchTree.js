@@ -76,14 +76,17 @@ class BinarySearchTree
     }
 
     //helper to print all leafs
-    printLeafs(node){
+    //return array of leafs
+    printLeafs(node, leafs){
         if(node){
-            this.printLeafs(node.left)
+            this.printLeafs(node.left, leafs)
             if(node.left == null && node.right == null){
-                console.log('leaf', node.data)
+                //console.log('leaf', node.data)
+                leafs.push(node.data)
             }
-            this.printLeafs(node.right)
+            this.printLeafs(node.right, leafs)
         }
+        return leafs
     }
 } 
 
