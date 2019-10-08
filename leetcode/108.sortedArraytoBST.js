@@ -38,27 +38,22 @@ Then moves to left, and right, adding each element to tree
 runtime: O(n) - we have one loop going through entire array
 */
 var sortedArrayToBST = function(nums){
-    var mid = Math.floor((nums.length-1)/2);
+  //validate
+  if (!nums.length) return null;
 
-    //initialize and insert root
-    var tree = new BST();    
-    tree.insert(nums[mid]);
-    var root = tree.getRoot();
+    function build (low, high) {
+      const mid = Math.floor((high + low) / 2);
+      if (low >= high) return null;
+      
+      const newNode = new Node(nums[mid]);
+      newNode.left = build(low, mid);
+      newNode.right = build(mid + 1, high);
+      
+      return newNode;
+  }
 
-    //variables to traverse left, and right
-    let left = mid - 1;
-    let right = mid + 1;
+  return build(0, nums.length);
 
-    while((left >= 0) || (right <= nums.length - 1)){
-      //insert left        
-      tree.insert(nums[left]);
-      //insert right
-      tree.insert(nums[right]);
-      left--;
-      right++;
-    }
-
-    tree.traverse(root);
 }
 
-sortedArrayToBST([-10,-3,0,5,9])
+console.log(sortedArrayToBST([-10,-3,0,5,9]));
